@@ -1,0 +1,37 @@
+import tkinter as tk
+from collections import Counter
+
+
+def word_count():
+    with open("C:\\m.txt") as f:
+        return Counter(f.read().split())
+
+def write_text():
+
+    t1 = tk.Text(font = "Arial 12 bold", bg = "brown", fg = "white")
+    t1.place(x=10, y=10, width=600, height=500)
+    marvel = open("C:\\m.txt")
+    marvel_icerik = marvel.read()
+    t1.insert(tk.END, marvel_icerik)
+
+
+
+parent = tk.Tk()
+frame = tk.Frame(parent)
+frame.pack()
+
+text_disp= tk.Button(frame,
+                   text = "READ",
+                   command = write_text)
+
+text_disp.pack(side=tk.LEFT)
+
+exit_button = tk.Button(frame,
+                   text = "CALCULATE",
+                   fg = "green",
+                   command = word_count)
+
+#print("Number of words in the file :", word_count("m.txt"))
+exit_button.pack(side = tk.RIGHT)
+
+parent.mainloop()
